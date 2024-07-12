@@ -1,6 +1,6 @@
 # DLP Patcher
 
-This is a plugin that patches Download Play inside the Wii U to unlock its usage. The library won't work by default due to missing system archives which DLP requires on production systems, so we patch those checks so that the library can be used.
+This is a plugin that patches Download Play inside the Wii U to unlock its usage.
 
 ## Installation
 
