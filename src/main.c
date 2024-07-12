@@ -11,8 +11,6 @@ WUPS_PLUGIN_VERSION("v1.0");
 WUPS_PLUGIN_AUTHOR("DaniElectra");
 WUPS_PLUGIN_LICENSE("MIT");
 
-#define ARM_NOP 0xE320F000 // nop
-
 /**
     Gets called ONCE when the plugin was loaded.
 **/
@@ -20,10 +18,8 @@ INITIALIZE_PLUGIN() {
     if(Mocha_InitLibrary() != MOCHA_RESULT_SUCCESS)
         return;
 
-    // Patch OTP security level check on DLP to ignore failure due to missing 3DS system updates archive
-    Mocha_IOSUKernelWrite32(0x1239E108, ARM_NOP);
-    Mocha_IOSUKernelWrite32(0x1239E10C, ARM_NOP);
-    Mocha_IOSUKernelWrite32(0x1239E110, ARM_NOP);
+    // Patch DLP region check by replacing result code with success
+    Mocha_IOSUKernelWrite32(0x1239DA7C, 0);
 
     Mocha_DeInitLibrary();
 }
