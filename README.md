@@ -1,3 +1,5 @@
+# NOTE: This plugin is not needed anymore if you are using Aroma 22 or later
+
 # DLP Patcher
 
 This is a plugin that patches Download Play inside the Wii U to unlock its usage.
